@@ -1,0 +1,17 @@
+# IDE
+.idea/
+.vscode/
+
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Thumbs.db
+ehthumbs.db
+ehthumbs_vista.db
+
+
+# Project
+node_modules/
