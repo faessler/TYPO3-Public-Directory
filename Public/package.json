@@ -1,0 +1,35 @@
+{
+  "name": "typo3-public-directory",
+  "version": "1.0.0",
+  "description": "Template with Gulp builder for the \"Public\" directory of TYPO3 extensions",
+  "main": "gulpfile.js",
+  "scripts": {
+    "dev": "gulp",
+    "prod": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/faessler/TYPO3-Public-Directory.git"
+  },
+  "author": "Jan Fässler",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "ajv": "^6.5.4",
+    "autoprefixer": "^9.1.5",
+    "babel-loader": "^8.0.4",
+    "cssnano": "^4.1.4",
+    "gulp": "^4.0.0",
+    "gulp-gm": "0.0.9",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-svgmin": "^2.1.0",
+    "postcss-discard-comments": "^4.0.1",
+    "postcss-import": "^12.0.0",
+    "uglifyjs-webpack-plugin": "^2.0.1",
+    "vinyl-named": "^1.1.0",
+    "webpack-stream": "^5.1.1"
+  }
+}
