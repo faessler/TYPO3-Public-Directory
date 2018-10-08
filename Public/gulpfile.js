@@ -1,11 +1,13 @@
 /*
  * IMPORT
  *
- * Get gulp and gulp files with tasks of their area.
+ * Get dependencies gulp & browserSync
+ * and gulp files with tasks of their area.
  */
 
 // Gulp
 const gulp = require('gulp');
+const browserSync = require('browser-sync').create();
 
 // Files with tasks
 const Css = require('./Css/gulpfile.css.tasks');
@@ -36,8 +38,35 @@ gulp.task('js', JavaScript.prod);
 gulp.task('img', Images);
 gulp.task('icon', Icons);
 
+// Browser Sync
+gulp.task('browser-sync', function () {
+    browserSync.init({
+        proxy: "fooBar.lo",
+        files: [
+            "Css/frontend.css",
+            "JavaScript/frontend.js"
+        ],
+        open: false,
+        notify: false,
+        localOnly: true
+    });
+});
+
+// Development Server
+gulp.task('server',
+    gulp.series(
+        gulp.parallel(Css.dev, JavaScript.dev, Images, Icons),
+        gulp.parallel('watcher', 'browser-sync')
+    )
+);
+
 // Development
-gulp.task('default', gulp.series(gulp.parallel(Css.dev, JavaScript.dev, Images, Icons), 'watcher'));
+gulp.task('default',
+    gulp.series(
+        gulp.parallel(Css.dev, JavaScript.dev, Images, Icons),
+        'watcher'
+    )
+);
 
 // Production
 gulp.task('build', gulp.parallel(Css.prod, JavaScript.prod, Images, Icons));
